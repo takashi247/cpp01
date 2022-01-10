@@ -18,7 +18,7 @@ SRCS		:= $(addprefix $(SRCSDIR), $(SRCS))
 
 VPATH		:= $(SRCSDIR)
 
-INCLUDE		:= -I./include
+INCLUDE		:= #-I./include
 
 RM			:= rm -rf
 
