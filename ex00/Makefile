@@ -15,6 +15,8 @@ SRCS		:= main.cpp \
 
 OBJS		:= $(addprefix $(OBJSDIR), $(SRCS:.cpp=.o))
 
+DEPS		:= $(OBJS:.o=.d)
+
 SRCS		:= $(addprefix $(SRCSDIR), $(SRCS))
 
 VPATH		:= $(SRCSDIR)
@@ -23,7 +25,7 @@ INCLUDE		:= -I./include
 
 RM			:= rm -rf
 
-DEBUG		:= -g -fsanitize=address
+DEBUG		:= -g# -fsanitize=address
 
 all:		$(NAME)
 
@@ -45,5 +47,7 @@ re:			fclean all
 
 debug:		CXXFLAGS += $(DEBUG)
 debug:		re
+
+-include $(DEPS)
 
 .PHONY:		all clean fclean re debug
