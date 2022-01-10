@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# For debug
+*.dSYM/
+
+# For config
+.vscode
+
+# Program name
+zombies
