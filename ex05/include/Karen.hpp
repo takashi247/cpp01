@@ -22,12 +22,7 @@ class Karen
         void    info(void);
         void    warning(void);
         void    error(void);
-        void (*const functionArray[])(void) = {
-            debug,
-            info,
-            warning,
-            error
-        };
+        void (*const functionArray[])(void);
 };
 
 #endif

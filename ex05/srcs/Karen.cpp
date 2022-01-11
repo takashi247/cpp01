@@ -38,6 +38,13 @@ void
 	std::cout << ERROR_MSG << std::endl;
 }
 
+void (*const functionArray[])(void) = {
+	debug,
+	info,
+	warning,
+	error
+};
+
 void
     Karen::complain(std::string level)
 {
