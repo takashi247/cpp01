@@ -10,7 +10,13 @@ const int           Karen::INFO_INDEX = 1;
 const int           Karen::WARNING_INDEX = 2;
 const int           Karen::ERROR_INDEX = 3;
 
-Karen::Karen(){};
+Karen::Karen()
+{
+	this->functionArray[0] = &this->debug();
+	this->functionArray[1] = &this->info();
+	this->functionArray[2] = &this->warning();
+	this->functionArray[3] = &this->error();
+};
 
 Karen::~Karen(){};
 
@@ -38,17 +44,10 @@ void
 	std::cout << ERROR_MSG << std::endl;
 }
 
-void Karen::(*const functionArray[])(void) = {
-	Karen::debug,
-	Karen::info,
-	Karen::warning,
-	Karen::error
-};
-
 void
     Karen::complain(std::string level)
 {
 	int	index = (level == "DEBUG") * DEBUG_INDEX + (level == "INFO") * INFO_INDEX \
         + (level == "WARNING") * WARNING_INDEX + (level == "ERROR") * ERROR_INDEX;
-    this->functionArray[index]();
+    (this->*funcs[index])();
 }

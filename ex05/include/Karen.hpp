@@ -9,6 +9,8 @@ class Karen
         Karen();
         ~Karen();
         void    complain(std::string level);
+        typedef void (Karen::*functionArray)(void);
+        functionArray funcs[4];
     private:
         static const std::string   DEBUG_MSG;
         static const std::string   INFO_MSG;
@@ -22,7 +24,6 @@ class Karen
         void    info(void);
         void    warning(void);
         void    error(void);
-        void (*const functionArray[])(void);
 };
 
 #endif
