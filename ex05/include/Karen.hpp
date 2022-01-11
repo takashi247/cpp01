@@ -19,8 +19,8 @@ class Karen
         static const int            WARNING_INDEX = 2;
         static const int            ERROR_INDEX = 3;
         static const int            INVALID_INDEX = 4;
-        typedef void (Karen::*functionArray)(void);
-        functionArray funcs[4];
+        typedef void (Karen::*memFuncPtr)(void);
+        memFuncPtr                  funcs[4];
         void    debug(void);
         void    info(void);
         void    warning(void);

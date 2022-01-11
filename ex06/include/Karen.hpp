@@ -20,8 +20,8 @@ class Karen
         static const std::string    INFO_MSG;
         static const std::string    WARNING_MSG;
         static const std::string    ERROR_MSG;
-        typedef void (Karen::*functionArray)(void);
-        functionArray funcs[4];
+        typedef void (Karen::*memFuncPtr)(void);
+        memFuncPtr                  funcs[4];
         void    debug(void);
         void    info(void);
         void    warning(void);
