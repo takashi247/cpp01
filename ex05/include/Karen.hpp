@@ -9,17 +9,18 @@ class Karen
         Karen();
         ~Karen();
         void    complain(std::string level);
+    private:
+        static const std::string    DEBUG_MSG;
+        static const std::string    INFO_MSG;
+        static const std::string    WARNING_MSG;
+        static const std::string    ERROR_MSG;
+        static const int            DEBUG_INDEX;
+        static const int            INFO_INDEX;
+        static const int            WARNING_INDEX;
+        static const int            ERROR_INDEX;
+        static const int            INVALID_INDEX;
         typedef void (Karen::*functionArray)(void);
         functionArray funcs[4];
-    private:
-        static const std::string   DEBUG_MSG;
-        static const std::string   INFO_MSG;
-        static const std::string   WARNING_MSG;
-        static const std::string   ERROR_MSG;
-        static const int           DEBUG_INDEX;
-        static const int           INFO_INDEX;
-        static const int           WARNING_INDEX;
-        static const int           ERROR_INDEX;
         void    debug(void);
         void    info(void);
         void    warning(void);
