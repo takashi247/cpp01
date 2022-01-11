@@ -5,18 +5,13 @@ const std::string   Karen::DEBUG_MSG = "I love to get extra bacon for my 7XL-dou
 const std::string   Karen::INFO_MSG = "I cannot believe adding extra bacon cost more money. You don’t put enough! If you did I would not have to ask for it!";
 const std::string   Karen::WARNING_MSG = "I think I deserve to have some extra bacon for free. I’ve been coming here for years and you just started working here last month.";
 const std::string   Karen::ERROR_MSG = "This is unacceptable, I want to speak to the manager now.";
-const int           Karen::DEBUG_INDEX = 0;
-const int           Karen::INFO_INDEX = 1;
-const int           Karen::WARNING_INDEX = 2;
-const int           Karen::ERROR_INDEX = 3;
-const int           Karen::INVALID_INDEX = 4;
 
 Karen::Karen()
 {
-	this->funcs[0] = &Karen::debug;
-	this->funcs[1] = &Karen::info;
-	this->funcs[2] = &Karen::warning;
-	this->funcs[3] = &Karen::error;
+	this->funcs[DEBUG_INDEX] = &Karen::debug;
+	this->funcs[INFO_INDEX] = &Karen::info;
+	this->funcs[WARNING_INDEX] = &Karen::warning;
+	this->funcs[ERROR_INDEX] = &Karen::error;
 };
 
 Karen::~Karen(){};

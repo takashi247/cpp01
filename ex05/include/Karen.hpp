@@ -14,11 +14,11 @@ class Karen
         static const std::string    INFO_MSG;
         static const std::string    WARNING_MSG;
         static const std::string    ERROR_MSG;
-        static const int            DEBUG_INDEX;
-        static const int            INFO_INDEX;
-        static const int            WARNING_INDEX;
-        static const int            ERROR_INDEX;
-        static const int            INVALID_INDEX;
+        static const int            DEBUG_INDEX = 0;
+        static const int            INFO_INDEX = 1;
+        static const int            WARNING_INDEX = 2;
+        static const int            ERROR_INDEX = 3;
+        static const int            INVALID_INDEX = 4;
         typedef void (Karen::*functionArray)(void);
         functionArray funcs[4];
         void    debug(void);
