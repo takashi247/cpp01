@@ -10,9 +10,9 @@ const int           INFO_INDEX = 1;
 const int           WARNING_INDEX = 2;
 const int           ERROR_INDEX = 3;
 
-Karen::Karen();
+Karen::Karen(){};
 
-Karen::~Karen();
+Karen::~Karen(){};
 
 void
     Karen::debug()
@@ -39,10 +39,10 @@ void
 }
 
 void (*const functionArray[])(void) = {
-	debug,
-	info,
-	warning,
-	error
+	Karen::debug,
+	Karen::info,
+	Karen::warning,
+	Karen::error
 };
 
 void
@@ -50,5 +50,5 @@ void
 {
 	int	index = (level == "DEBUG") * DEBUG_INDEX + (level == "INFO") * INFO_INDEX \
         + (level == "WARNING") * WARNING_INDEX + (level == "ERROR") * ERROR_INDEX;
-    (this->*functionArray[index])();
+    functionArray[index]();
 }
