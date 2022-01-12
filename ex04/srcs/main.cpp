@@ -20,6 +20,7 @@ int
 	std::string	replacement = av[3];
     while (std::getline(ifs, line))
 	{
+        line += "\n";
 		std::string::size_type	found = line.find(target);
 		while (found != std::string::npos)
 		{
@@ -27,7 +28,7 @@ int
 			line.insert(found, replacement);
 			found = line.find(target);
 		}
-        ofs << line << std::endl;
+        ofs << line;
 	}
     return (0);
 }
