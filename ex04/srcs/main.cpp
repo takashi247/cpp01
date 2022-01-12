@@ -1,25 +1,9 @@
 #include <fstream>
 #include <iostream>
 
-int
-    main(int ac, char **av)
+void
+    ft_replace(std::ifstream &ifs, std::ofstream &ofs, char **av)
 {
-    if (ac != 4)
-        return (1);
-    std::ifstream   ifs(av[1]);
-    if (ifs.fail())
-    {
-        std::cout << "Failed to open the input file" << std::endl;
-        return (1);
-    }
-    std::string     filename = av[1];
-    filename += ".replace";
-    std::ofstream   ofs(filename);
-    if (ofs.fail())
-    {
-        std::cout << "Failed to open the output file" << std::endl;
-        return (1);
-    }
     std::string line;
 	std::string	target = av[2];
 	std::string::size_type	len_of_target = target.length();
@@ -36,5 +20,42 @@ int
 		}
         ofs << line;
 	}
-    return (0);
+    ofs << std::flush;
+}
+
+std::string
+    ft_toupper(std::string str)
+{
+    for (std::string::size_type i = 0; i < str.length(); i++)
+        str[i] = static_cast<char>(std::toupper(static_cast<unsigned char>(str[i])));
+    return (str);
+}
+
+int
+    main(int ac, char **av)
+{
+    if (ac != 4)
+        std::exit(1);
+    std::ifstream   ifs(av[1], std::ios_base::binary);
+    if (!ifs.good())
+    {
+        std::cerr << "Failed to open the input file" << std::endl;
+        std::exit(1);
+    }
+    std::string     filename = av[1];
+    std::ifstream   dir_check(filename + "/");
+    if (dir_check.good())
+    {
+        std::cerr << "The input file is a directory" << std::endl;
+        std::exit(1);
+    }
+    filename = ft_toupper(filename);
+    filename += ".replace";
+    std::ofstream   ofs(filename, std::ios_base::binary);
+    if (ofs.fail())
+    {
+        std::cerr << "Failed to open the output file" << std::endl;
+        std::exit(1);
+    }
+    ft_replace(ifs, ofs, av);
 }

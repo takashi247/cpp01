@@ -39,7 +39,7 @@ clean:
 
 fclean:		clean
 	$(RM) $(NAME)
-	$(RM) *.replace
+	$(RM) test_files/*.replace
 
 re:			fclean all
 
