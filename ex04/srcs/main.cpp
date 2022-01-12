@@ -8,12 +8,18 @@ int
         return (1);
     std::ifstream   ifs(av[1]);
     if (ifs.fail())
+    {
         std::cout << "Failed to open the input file" << std::endl;
+        return (1);
+    }
     std::string     filename = av[1];
     filename += ".replace";
     std::ofstream   ofs(filename);
     if (ofs.fail())
+    {
         std::cout << "Failed to open the output file" << std::endl;
+        return (1);
+    }
     std::string line;
 	std::string	target = av[2];
 	std::string::size_type	len_of_target = target.length();
