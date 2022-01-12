@@ -39,14 +39,14 @@ int
     std::ifstream   ifs(av[1], std::ios_base::binary);
     if (!ifs.good())
     {
-        std::cerr << "Failed to open the input file" << std::endl;
+        std::cerr << "ERROR: Failed to open the input file" << std::endl;
         std::exit(1);
     }
     std::string     filename = av[1];
     std::ifstream   dir_check(filename + "/");
     if (dir_check.good())
     {
-        std::cerr << "The input file is a directory" << std::endl;
+        std::cerr << "ERROR: The input file is a directory" << std::endl;
         std::exit(1);
     }
     filename = ft_toupper(filename);
@@ -54,7 +54,7 @@ int
     std::ofstream   ofs(filename, std::ios_base::binary);
     if (ofs.fail())
     {
-        std::cerr << "Failed to open the output file" << std::endl;
+        std::cerr << "ERROR: Failed to open the output file" << std::endl;
         std::exit(1);
     }
     ft_replace(ifs, ofs, av);
