@@ -2,6 +2,7 @@
 #include <iostream>
 
 Zombie::Zombie()
+	name("")
 {
 }
 

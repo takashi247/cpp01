@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 Zombie
-	*Zombie::zombieHorde(int N, std::string name)
+	*zombieHorde(int N, std::string name)
 {
 	Zombie	*head;
 	head = new Zombie[N];
