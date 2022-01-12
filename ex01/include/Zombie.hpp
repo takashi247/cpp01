@@ -12,7 +12,7 @@ class Zombie
 		void			announce();
 		void			setName(std::string name);
 		std::string		getName() const;
-		static Zombie*	zombieHorde(int N, std::string name);
+		Zombie*			zombieHorde(int N, std::string name);
 	private:
 		std::string		name;
 };
