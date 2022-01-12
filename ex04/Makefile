@@ -22,7 +22,7 @@ INCLUDE		:= #-I./include
 
 RM			:= rm -rf
 
-DEBUG		:= -g# -fsanitize=address
+DEBUG		:= -g -fsanitize=address
 
 all:		$(NAME)
 
@@ -42,6 +42,9 @@ fclean:		clean
 	$(RM) test_files/*.replace
 
 re:			fclean all
+
+test:		re
+	@bash ./test_files/error_test.sh
 
 debug:		CXXFLAGS += $(DEBUG)
 debug:		re
