@@ -52,7 +52,7 @@ int
     filename = ft_toupper(filename);
     filename += ".replace";
     std::ofstream   ofs(filename, std::ios_base::binary);
-    if (ofs.fail())
+    if (!ofs.good())
     {
         std::cerr << "ERROR: Failed to open the output file" << std::endl;
         std::exit(1);
