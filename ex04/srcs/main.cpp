@@ -31,6 +31,19 @@ std::string
     return (str);
 }
 
+void
+    check_input_strings(char **av)
+{
+    std::string target = av[2];
+    std::string replacement = av[3];
+    std::string::size_type  found_self = replacement.find(target);
+    if (found_self != std::string::npos)
+    {
+        std::cerr << "ERROR: The second string should not include the first string" << std::endl;
+        std::exit(1);
+    }
+}
+
 int
     main(int ac, char **av)
 {
@@ -49,6 +62,7 @@ int
         std::cerr << "ERROR: The input file is a directory" << std::endl;
         std::exit(1);
     }
+    check_input_strings(av);
     filename = ft_toupper(filename);
     filename += ".replace";
     std::ofstream   ofs(filename, std::ios_base::binary);
